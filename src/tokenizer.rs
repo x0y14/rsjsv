@@ -31,7 +31,7 @@ impl Tokenizer {
         self.position.at >= self.content.chars().count()
     }
 
-    fn current(&self) -> Option<char> {
+    fn current_char(&self) -> Option<char> {
         if self.is_eof() {
             return None;
         }
@@ -69,6 +69,6 @@ mod tests {
     fn is_eof() {
         let tokenizer = Tokenizer::from_str("content");
         assert!(!tokenizer.is_eof());
-        assert_eq!(tokenizer.current(), Some('c'));
+        assert_eq!(tokenizer.current_char(), Some('c'));
     }
 }
